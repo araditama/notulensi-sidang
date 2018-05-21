@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sidang 2018</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>Notulensi sidang</h1>
+            <input type="text" v-model="type"/>
+            <label>Input:</label>
+            <input type="text" v-model="input" v-on:keyup.shift.alt.q="logQuestion" v-on:keyup.shift.alt.a="logAnswer"
+                   v-on:keyup.shift.alt.j="logJustification" v-on:keyup.shift.alt.o="logOrder"
+            v-on:keyup.enter="saveLog" />
+
+            <template v-for="(log, index) in logs">
+                <h3> {{ index }} . {{ log.type }} </h3>
+                <textarea>
+                    {{ log.des }}
+                </textarea>
+            </template>
+
+
+        </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>
