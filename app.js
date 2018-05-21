@@ -33,6 +33,8 @@ new Vue({
         },
         del: function(index) {
             this.logs.splice(index, 1);
+        },
+        edit: function(index) {
         }
     },
     computed: {
