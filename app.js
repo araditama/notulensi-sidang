@@ -4,6 +4,10 @@ new Vue({
         type: "type",
         input: "",
         logs: [
+        ],
+        selectedValue: null,
+        absensi: [
+            "Apache", "Cochise", 'joko', 'ilham'
         ]
     },
     methods: {
@@ -24,7 +28,7 @@ new Vue({
             console.log('you order');
         },
         saveLog: function() {
-            this.logs.push(new Object({type:this.type, des:this.input}));
+            this.logs.push(new Object({user:this.selectedValue, type:this.type, des:this.input}));
             this.input = "";
         }
     },

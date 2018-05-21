@@ -9,19 +9,22 @@
     <body>
         <div id="vue-app">
             <h1>Notulensi sidang</h1>
-            <input type="text" v-model="type"/>
+            <select v-model="selectedValue">
+                <option disabled value="">Nama</option>
+                <option v-for="item in absensi" :value="item">{{item}}</option>
+            </select>
+            <input tabindex="-1" type="text" v-model="type"/>
             <label>Input:</label>
             <input type="text" v-model="input" v-on:keyup.shift.alt.q="logQuestion" v-on:keyup.shift.alt.a="logAnswer"
                    v-on:keyup.shift.alt.j="logJustification" v-on:keyup.shift.alt.o="logOrder"
             v-on:keyup.enter="saveLog" />
 
-            <template v-for="(log, index) in logs">
-                <h3> {{ index }} . {{ log.type }} </h3>
-                <textarea>
+            <template tabindex="-1" v-for="(log, index) in logs">
+                <h3 > {{ log.user }} . {{ log.type }} </h3>
+                <textarea tabindex="-1">
                     {{ log.des }}
                 </textarea>
             </template>
-
 
         </div>
     </body>
