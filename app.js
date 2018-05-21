@@ -30,6 +30,9 @@ new Vue({
         saveLog: function() {
             this.logs.push(new Object({user:this.selectedValue, type:this.type, des:this.input}));
             this.input = "";
+        },
+        del: function(index) {
+            this.logs.splice(index, 1);
         }
     },
     computed: {
