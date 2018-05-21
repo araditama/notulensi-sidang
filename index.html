@@ -7,7 +7,9 @@
         <script src="vue.js"></script>
     </head>
     <body>
-        <div id="vue-app">
+        <div id="vue-app" >
+            <div v-on:keyup.shift.alt.q="logQuestion" v-on:keyup.shift.alt.a="logAnswer"
+                v-on:keyup.shift.alt.j="logJustification" v-on:keyup.shift.alt.o="logOrder">
             <h1>Notulensi sidang</h1>
             <select v-model="selectedValue">
                 <option disabled value="">Nama</option>
@@ -15,8 +17,7 @@
             </select>
             <input tabindex="-1" type="text" v-model="type"/>
             <label>Input:</label>
-            <input type="text" v-model="input" v-on:keyup.shift.alt.q="logQuestion" v-on:keyup.shift.alt.a="logAnswer"
-                   v-on:keyup.shift.alt.j="logJustification" v-on:keyup.shift.alt.o="logOrder"
+            <input type="text" v-model="input" 
             v-on:keyup.enter="saveLog" />
 
             <template tabindex="-1" v-for="(log, index) in logs">
@@ -26,6 +27,7 @@
                 </textarea>
             </template>
 
+            </div>
         </div>
     </body>
 
